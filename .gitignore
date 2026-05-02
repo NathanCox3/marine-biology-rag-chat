@@ -1,0 +1,21 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Runtime logs
+*.log
+
+# Persisted local vector DB; keep data/storage/.gitkeep in git.
+data/storage/*
+!data/storage/.gitkeep
+
+# Local editor/system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
