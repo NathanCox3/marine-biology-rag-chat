@@ -2,6 +2,14 @@
 
 A portfolio-quality FastAPI RAG app that answers marine biology questions from textbook PDF and text excerpts. It ingests local source documents, chunks and embeds them with LlamaIndex, stores vectors in persistent Chroma storage, reranks retrieved evidence, and returns answers with citations from actual retrieved chunk metadata.
 
+## Live Demo
+
+Try the public API docs here:
+
+[https://award-colour-someone-strongly.trycloudflare.com/docs](https://award-colour-someone-strongly.trycloudflare.com/docs)
+
+Use the `/ask` endpoint in Swagger UI to query the demo marine biology corpus. This demo URL is served through a Cloudflare quick tunnel, so it stays available while the local FastAPI and tunnel processes are running.
+
 ## Why This Project Exists
 
 This app is an experiment in building practical retrieval-augmented generation pipelines rather than a plain chatbot. The goal is to explore how LlamaIndex can coordinate document loading, chunking, embeddings, vector storage, retrieval, reranking, and prompt assembly while keeping the application code understandable.
