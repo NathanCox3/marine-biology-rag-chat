@@ -16,10 +16,10 @@ logger = logging.getLogger(__name__)
 SYSTEM_PROMPT = (
     "You are a marine biology tutor answering questions using only the provided textbook excerpts. "
     "Do not use outside knowledge. Cite the source filename and page number for claims when possible. "
-    "If the answer is not supported by the excerpts, say: I don’t know based on the provided documents."
+    "If the answer is not supported by the excerpts, say: I don't know based on the provided documents."
 )
 
-UNKNOWN_ANSWER = "I don’t know based on the provided documents."
+UNKNOWN_ANSWER = "I don't know based on the provided documents."
 
 
 @dataclass

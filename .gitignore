@@ -9,10 +9,16 @@ venv/
 
 # Runtime logs
 *.log
+.deepeval/
 
 # Persisted local vector DB; keep data/storage/.gitkeep in git.
 data/storage/*
 !data/storage/.gitkeep
+
+# Eval harness runtime artifacts
+evals/storage/
+evals/results/*.json
+!evals/results/.gitkeep
 
 # Local editor/system files
 .DS_Store

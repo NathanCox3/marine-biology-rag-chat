@@ -55,6 +55,35 @@ README.md
 8. The top 5 chunks are placed into a strict prompt that tells the LLM to answer only from the excerpts.
 9. The API response includes citations from the selected chunk metadata.
 
+## Evaluation Harness
+
+The repo includes a DeepEval harness for measuring whether pipeline changes improve answer quality.
+
+The eval set lives in `evals/qa_pairs.json` and contains 30 document-grounded question-answer pairs with expected source files. The runner evaluates each answer on:
+
+- Relevance: DeepEval `AnswerRelevancyMetric`
+- Faithfulness: DeepEval `FaithfulnessMetric` against retrieved excerpts
+- Completeness: DeepEval `GEval` comparing the answer to the expected answer
+
+Run the full comparison:
+
+```powershell
+python scripts/run_deepeval.py
+```
+
+Run a smaller smoke test:
+
+```powershell
+python scripts/run_deepeval.py --limit 3
+```
+
+The harness rebuilds two vector stores under `evals/storage/`:
+
+- `baseline_chunk_900`: chunk size `900`, overlap `150`
+- `variant_chunk_450`: chunk size `450`, overlap `100`
+
+Results are written to `evals/results/` as JSON files. These generated result files are ignored by Git so you can rerun experiments without polluting commits.
+
 ## Setup
 
 Python 3.11 or 3.12 is recommended because vector database and local ML packages can lag behind brand-new Python releases.

@@ -1,0 +1,182 @@
+[
+  {
+    "id": "coral_reef_001",
+    "question": "What physical features make coral reefs useful habitats for marine organisms?",
+    "expected_answer": "Coral reefs create many small habitats, including crevices, overhangs, lagoons, reef flats, and deeper slopes. These spaces shelter fishes, crustaceans, mollusks, worms, echinoderms, and other organisms.",
+    "expected_sources": ["demo_chapter_01_coral_reef_ecology.txt"]
+  },
+  {
+    "id": "coral_reef_002",
+    "question": "Why do coral reefs support high biodiversity?",
+    "expected_answer": "They combine shelter, feeding opportunities, nursery habitat, and breeding sites in a compact area, while reef relationships such as grazing by herbivorous fishes help maintain coral-dominated habitat.",
+    "expected_sources": ["demo_chapter_01_coral_reef_ecology.txt"]
+  },
+  {
+    "id": "coral_reef_003",
+    "question": "What is the symbiotic relationship between coral polyps and zooxanthellae?",
+    "expected_answer": "Zooxanthellae provide energy-rich compounds to coral through photosynthesis, while corals provide protection and access to sunlight in shallow water.",
+    "expected_sources": ["demo_chapter_01_coral_reef_ecology.txt"]
+  },
+  {
+    "id": "coral_reef_004",
+    "question": "What causes coral bleaching according to the documents?",
+    "expected_answer": "Bleaching occurs when corals lose their symbiotic algae or algal pigments decline under stress. Heat stress is common, but pollution, sedimentation, disease, and salinity changes can also contribute.",
+    "expected_sources": ["demo_chapter_01_coral_reef_ecology.txt"]
+  },
+  {
+    "id": "kelp_001",
+    "question": "How does kelp create habitat structure in coastal ecosystems?",
+    "expected_answer": "Kelp attaches to rocky seafloors with holdfasts, extends through the water column, and forms floating canopies. This vertical structure creates habitat near the bottom, in midwater, and in the canopy.",
+    "expected_sources": ["demo_chapter_02_kelp_forest_ecology.txt"]
+  },
+  {
+    "id": "kelp_002",
+    "question": "How can sea urchins affect kelp forests?",
+    "expected_answer": "Sea urchins graze kelp tissue and can create urchin barrens when predators are reduced or absent.",
+    "expected_sources": ["demo_chapter_02_kelp_forest_ecology.txt"]
+  },
+  {
+    "id": "kelp_003",
+    "question": "What is the trophic cascade described for kelp forests?",
+    "expected_answer": "Predators such as sea otters, lobsters, and some fishes limit grazers like sea urchins. By reducing grazing pressure, these predators can indirectly support kelp forests.",
+    "expected_sources": ["demo_chapter_02_kelp_forest_ecology.txt"]
+  },
+  {
+    "id": "kelp_004",
+    "question": "What environmental conditions influence kelp productivity?",
+    "expected_answer": "Kelp productivity depends on light, nutrients, temperature, and wave exposure. Upwelling can supply nitrate-rich water that promotes kelp growth.",
+    "expected_sources": ["demo_chapter_02_kelp_forest_ecology.txt"]
+  },
+  {
+    "id": "coastal_001",
+    "question": "What ecosystem services do mangrove roots provide?",
+    "expected_answer": "Mangrove roots stabilize sediment, reduce shoreline erosion, trap organic matter, and create sheltered nursery habitat for juvenile fishes and invertebrates.",
+    "expected_sources": ["demo_chapter_03_mangroves_and_seagrass.txt"]
+  },
+  {
+    "id": "coastal_002",
+    "question": "How do seagrass meadows improve coastal water conditions?",
+    "expected_answer": "Seagrass blades slow water flow, trap sediment, and improve water clarity in shallow coastal zones.",
+    "expected_sources": ["demo_chapter_03_mangroves_and_seagrass.txt"]
+  },
+  {
+    "id": "coastal_003",
+    "question": "How are mangroves, seagrass meadows, and coral reefs connected?",
+    "expected_answer": "Many fishes use mangroves or seagrass beds during early life stages and later move to reefs as adults, so habitat connectivity increases survival and supports fisheries.",
+    "expected_sources": ["demo_chapter_03_mangroves_and_seagrass.txt"]
+  },
+  {
+    "id": "coastal_004",
+    "question": "Why are mangroves and seagrass meadows important for blue carbon?",
+    "expected_answer": "They store large amounts of carbon in plant biomass and sediments, making them important for climate mitigation.",
+    "expected_sources": ["demo_chapter_03_mangroves_and_seagrass.txt"]
+  },
+  {
+    "id": "plankton_001",
+    "question": "What role do phytoplankton play in marine food webs?",
+    "expected_answer": "Phytoplankton are photosynthetic plankton that form the base of many marine food webs by producing organic matter from sunlight, carbon dioxide, and dissolved nutrients.",
+    "expected_sources": ["demo_chapter_04_plankton_and_food_webs.txt"]
+  },
+  {
+    "id": "plankton_002",
+    "question": "Which nutrients can limit phytoplankton growth?",
+    "expected_answer": "Phytoplankton growth can be limited by nitrate, phosphate, iron, or silica.",
+    "expected_sources": ["demo_chapter_04_plankton_and_food_webs.txt"]
+  },
+  {
+    "id": "plankton_003",
+    "question": "What is the biological pump?",
+    "expected_answer": "The biological pump is the process by which sinking particles carry carbon from surface waters into the deep ocean, linking plankton communities to climate regulation.",
+    "expected_sources": ["demo_chapter_04_plankton_and_food_webs.txt"]
+  },
+  {
+    "id": "habitats_001",
+    "question": "What stresses do organisms face in the intertidal zone?",
+    "expected_answer": "Intertidal organisms face waves, drying, temperature shifts, and predation because the zone lies between high and low tide.",
+    "expected_sources": ["demo_chapter_05_ocean_zones_and_habitats.txt"]
+  },
+  {
+    "id": "habitats_002",
+    "question": "Why is the neritic zone often productive?",
+    "expected_answer": "The neritic zone is often productive because light reaches shallow waters and nutrients arrive from land or upwelling.",
+    "expected_sources": ["demo_chapter_05_ocean_zones_and_habitats.txt"]
+  },
+  {
+    "id": "habitats_003",
+    "question": "What food sources support deep-sea organisms?",
+    "expected_answer": "Deep-sea organisms may rely on sinking organic matter, predation, scavenging, or chemosynthetic production near hydrothermal vents and cold seeps.",
+    "expected_sources": ["demo_chapter_05_ocean_zones_and_habitats.txt", "demo_chapter_10_deep_sea_and_chemosynthesis.txt"]
+  },
+  {
+    "id": "adaptations_001",
+    "question": "How do marine bony fishes handle salt and water balance?",
+    "expected_answer": "Marine bony fishes tend to lose water to salty surroundings, so they drink seawater and excrete salts through their gills and kidneys.",
+    "expected_sources": ["demo_chapter_06_marine_adaptations.txt"]
+  },
+  {
+    "id": "adaptations_002",
+    "question": "What adaptations help marine organisms with buoyancy?",
+    "expected_answer": "Fishes may use swim bladders, lipid-rich tissues, or lift-generating body shapes. Plankton may use spines, flattened bodies, oil droplets, or small size to slow sinking.",
+    "expected_sources": ["demo_chapter_06_marine_adaptations.txt"]
+  },
+  {
+    "id": "adaptations_003",
+    "question": "How does countershading help pelagic animals?",
+    "expected_answer": "Countershading makes the dorsal side darker and ventral side lighter, helping pelagic animals blend with dark depths from above and the bright surface from below.",
+    "expected_sources": ["demo_chapter_06_marine_adaptations.txt"]
+  },
+  {
+    "id": "fisheries_001",
+    "question": "What happens when fisheries are overfished?",
+    "expected_answer": "Overfishing happens when harvest exceeds replacement. It can change age structure, reduce reproductive output, and alter food-web interactions.",
+    "expected_sources": ["demo_chapter_07_fisheries_and_conservation.txt"]
+  },
+  {
+    "id": "fisheries_002",
+    "question": "What is bycatch, and how can it be reduced?",
+    "expected_answer": "Bycatch is unintended capture of non-target species such as seabirds, turtles, sharks, and juvenile fishes. It can be reduced through gear modifications, seasonal closures, spatial closures, and improved monitoring.",
+    "expected_sources": ["demo_chapter_07_fisheries_and_conservation.txt"]
+  },
+  {
+    "id": "fisheries_003",
+    "question": "What conditions make marine protected areas effective?",
+    "expected_answer": "Effective marine protected areas depend on enforcement, ecological design, local support, and connectivity among habitats.",
+    "expected_sources": ["demo_chapter_07_fisheries_and_conservation.txt"]
+  },
+  {
+    "id": "pollution_001",
+    "question": "What is eutrophication in marine systems?",
+    "expected_answer": "Eutrophication occurs when excess nitrogen and phosphorus from agriculture, wastewater, or urban runoff stimulate algal blooms. Decomposition of dead algae can deplete dissolved oxygen and create hypoxic zones.",
+    "expected_sources": ["demo_chapter_08_pollution_and_eutrophication.txt"]
+  },
+  {
+    "id": "pollution_002",
+    "question": "How can plastic pollution affect marine organisms?",
+    "expected_answer": "Plastic pollution can affect organisms through ingestion, entanglement, and habitat alteration. Microplastics can be eaten by plankton, shellfish, fishes, and seabirds.",
+    "expected_sources": ["demo_chapter_08_pollution_and_eutrophication.txt"]
+  },
+  {
+    "id": "climate_001",
+    "question": "What marine ecosystem changes are associated with climate change?",
+    "expected_answer": "Climate change affects marine ecosystems through warming, sea-level rise, oxygen loss, changing currents, stronger marine heatwaves, and altered species distributions.",
+    "expected_sources": ["demo_chapter_09_climate_change_and_ocean_acidification.txt"]
+  },
+  {
+    "id": "climate_002",
+    "question": "How does ocean acidification affect calcifying organisms?",
+    "expected_answer": "Absorbed carbon dioxide forms carbonic acid, lowering pH and reducing carbonate ion availability. This can make it harder for corals, mollusks, some plankton, and other calcifying organisms to build shells or skeletons.",
+    "expected_sources": ["demo_chapter_09_climate_change_and_ocean_acidification.txt"]
+  },
+  {
+    "id": "deep_sea_001",
+    "question": "How do hydrothermal vents support food webs without sunlight?",
+    "expected_answer": "Hydrothermal vents support chemosynthetic communities where microbes use chemical energy from compounds such as hydrogen sulfide or methane to produce organic matter.",
+    "expected_sources": ["demo_chapter_10_deep_sea_and_chemosynthesis.txt"]
+  },
+  {
+    "id": "deep_sea_002",
+    "question": "Why are deep-sea ecosystems vulnerable to disturbance?",
+    "expected_answer": "Deep-sea ecosystems are vulnerable because many species grow slowly, reproduce late, and recover over long time scales. Mining, trawling, pollution, and climate-driven food-supply changes can affect them.",
+    "expected_sources": ["demo_chapter_10_deep_sea_and_chemosynthesis.txt"]
+  }
+]
