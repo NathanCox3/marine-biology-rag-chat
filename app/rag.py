@@ -1,4 +1,5 @@
 import logging
+from hashlib import sha256
 from dataclasses import dataclass
 
 from llama_index.core import VectorStoreIndex
@@ -36,8 +37,14 @@ class RAGService:
         self._index: VectorStoreIndex | None = None
         self._llm = None
         self._reranker = None
+        self._redis = None
 
     def ask(self, question: str) -> AskResponse:
+        cache_key = self._cache_key(question)
+        cached = self._cache_get(cache_key)
+        if cached is not None:
+            return cached
+
         index = self._get_index()
         retriever = index.as_retriever(similarity_top_k=self.settings.similarity_top_k)
         candidates = retriever.retrieve(question)
@@ -55,10 +62,12 @@ class RAGService:
             ]
         )
         answer = (response.message.content or "").strip() or UNKNOWN_ANSWER
-        return AskResponse(
+        result = AskResponse(
             answer=answer,
             sources=[self._citation_from_node(item.node) for item in final_nodes],
         )
+        self._cache_set(cache_key, result)
+        return result
 
     def index_ready(self) -> bool:
         try:
@@ -91,6 +100,57 @@ class RAGService:
         if self._llm is None:
             self._llm = build_llm(self.settings)
         return self._llm
+
+    def _get_redis(self):
+        if not self.settings.redis_url:
+            return None
+        if self._redis is None:
+            import redis
+
+            self._redis = redis.Redis.from_url(
+                self.settings.redis_url,
+                decode_responses=True,
+                socket_connect_timeout=2,
+                socket_timeout=2,
+            )
+        return self._redis
+
+    def _cache_key(self, question: str) -> str:
+        raw_key = "|".join(
+            [
+                self.settings.chroma_collection,
+                str(self.settings.similarity_top_k),
+                str(self.settings.final_top_k),
+                question.strip().lower(),
+            ]
+        )
+        return "marine-rag:ask:" + sha256(raw_key.encode("utf-8")).hexdigest()
+
+    def _cache_get(self, key: str) -> AskResponse | None:
+        try:
+            redis_client = self._get_redis()
+            if redis_client is None:
+                return None
+            cached = redis_client.get(key)
+            if cached:
+                logger.info("Returning cached RAG response")
+                return AskResponse.model_validate_json(cached)
+        except Exception:
+            logger.exception("Redis cache read failed; continuing without cache")
+        return None
+
+    def _cache_set(self, key: str, response: AskResponse) -> None:
+        try:
+            redis_client = self._get_redis()
+            if redis_client is None:
+                return
+            redis_client.setex(
+                key,
+                self.settings.cache_ttl_seconds,
+                response.model_dump_json(),
+            )
+        except Exception:
+            logger.exception("Redis cache write failed; continuing without cache")
 
     def _rerank(self, question: str, candidates: list[NodeWithScore]) -> list[RerankedNode]:
         if not self.settings.enable_reranking or len(candidates) <= 1:

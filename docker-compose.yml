@@ -1,0 +1,46 @@
+services:
+  api:
+    build:
+      context: .
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      MARINE_RAG_OPENAI_API_KEY: ${MARINE_RAG_OPENAI_API_KEY:-}
+      MARINE_RAG_ANTHROPIC_API_KEY: ${MARINE_RAG_ANTHROPIC_API_KEY:-}
+      MARINE_RAG_LLM_PROVIDER: ${MARINE_RAG_LLM_PROVIDER:-openai}
+      MARINE_RAG_OPENAI_MODEL: ${MARINE_RAG_OPENAI_MODEL:-gpt-4o-mini}
+      MARINE_RAG_EMBEDDING_PROVIDER: ${MARINE_RAG_EMBEDDING_PROVIDER:-openai}
+      MARINE_RAG_OPENAI_EMBEDDING_MODEL: ${MARINE_RAG_OPENAI_EMBEDDING_MODEL:-text-embedding-3-small}
+      MARINE_RAG_CHROMA_HOST: chroma
+      MARINE_RAG_CHROMA_PORT: 8000
+      MARINE_RAG_REDIS_URL: redis://redis:6379/0
+      MARINE_RAG_RAW_DOCS_DIR: /app/data/raw_docs
+      MARINE_RAG_STORAGE_DIR: /app/data/storage
+      MARINE_RAG_LOG_LEVEL: INFO
+    ports:
+      - "8000:8000"
+    depends_on:
+      - chroma
+      - redis
+    restart: unless-stopped
+
+  chroma:
+    image: chromadb/chroma:latest
+    volumes:
+      - chroma-data:/chroma/chroma
+    ports:
+      - "8001:8000"
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+volumes:
+  chroma-data:
+  redis-data:

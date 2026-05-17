@@ -64,12 +64,20 @@ def list_source_files(raw_docs_dir: Path) -> list[Path]:
 def ensure_project_dirs(settings: Settings) -> None:
     settings.raw_docs_dir.mkdir(parents=True, exist_ok=True)
     settings.storage_dir.mkdir(parents=True, exist_ok=True)
-    settings.chroma_path.mkdir(parents=True, exist_ok=True)
+    if not settings.chroma_host:
+        settings.chroma_path.mkdir(parents=True, exist_ok=True)
 
 
 def get_chroma_collection(settings: Settings, reset: bool = False) -> Any:
     ensure_project_dirs(settings)
-    client = chromadb.PersistentClient(path=str(settings.chroma_path))
+    if settings.chroma_host:
+        client = chromadb.HttpClient(
+            host=settings.chroma_host,
+            port=settings.chroma_port,
+            ssl=settings.chroma_ssl,
+        )
+    else:
+        client = chromadb.PersistentClient(path=str(settings.chroma_path))
     if reset:
         try:
             client.delete_collection(settings.chroma_collection)
@@ -118,4 +126,3 @@ def build_llm(settings: Settings) -> Any:
         api_key=settings.openai_api_key,
         temperature=settings.llm_temperature,
     )
-

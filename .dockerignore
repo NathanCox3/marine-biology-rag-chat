@@ -1,0 +1,15 @@
+.git
+.deepeval
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.log
+data/storage/
+evals/storage/
+evals/results/*.json
+

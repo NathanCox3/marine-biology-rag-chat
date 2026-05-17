@@ -17,4 +17,5 @@ chromadb>=0.6.0
 pypdf>=5.1.0
 sentence-transformers>=3.3.0
 deepeval>=4.0.0
+redis>=5.2.0
 pytest>=8.3.0

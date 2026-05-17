@@ -151,6 +151,48 @@ uvicorn app.main:app --reload
 
 Open the API docs at `http://127.0.0.1:8000/docs`.
 
+## Run With Docker Compose
+
+The app is containerized with three services:
+
+- `api`: FastAPI RAG app
+- `chroma`: vector database service, exposed locally on port `8001`
+- `redis`: response cache, exposed locally on port `6379`
+
+Create a local `.env` file with at least an OpenAI key:
+
+```env
+MARINE_RAG_OPENAI_API_KEY=your_openai_key
+MARINE_RAG_LLM_PROVIDER=openai
+MARINE_RAG_EMBEDDING_PROVIDER=openai
+```
+
+Then start the full stack:
+
+```powershell
+docker compose up --build
+```
+
+On startup, the API waits for Chroma, ingests the bundled demo documents from `data/raw_docs/`, writes embeddings to the Chroma service, connects to Redis, and starts FastAPI at:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+Useful commands:
+
+```powershell
+docker compose ps
+docker compose logs -f api
+docker compose down
+```
+
+To clear persisted vector/cache data and start fresh:
+
+```powershell
+docker compose down -v
+```
+
 ## API
 
 Health check:

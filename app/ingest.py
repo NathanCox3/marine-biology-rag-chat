@@ -131,13 +131,20 @@ def ingest_documents(settings: Settings | None = None) -> IngestStats:
     return IngestStats(
         documents_loaded=len(documents),
         chunks_indexed=len(nodes),
-        storage_path=str(settings.chroma_path),
+        storage_path=_storage_location(settings),
     )
 
 
 def _stable_node_id(filename: str, chunk_id: str) -> str:
     safe_filename = re.sub(r"[^a-zA-Z0-9_.-]+", "_", filename)
     return f"{safe_filename}:{chunk_id}"
+
+
+def _storage_location(settings: Settings) -> str:
+    if settings.chroma_host:
+        scheme = "https" if settings.chroma_ssl else "http"
+        return f"{scheme}://{settings.chroma_host}:{settings.chroma_port}/{settings.chroma_collection}"
+    return str(settings.chroma_path)
 
 
 if __name__ == "__main__":
@@ -147,4 +154,3 @@ if __name__ == "__main__":
         f"Ingested {stats.chunks_indexed} chunks from {stats.documents_loaded} "
         f"document pages/files into {stats.storage_path}"
     )
-

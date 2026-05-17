@@ -41,6 +41,12 @@ class Settings(BaseSettings):
         default="marine_biology_docs",
         validation_alias="MARINE_RAG_CHROMA_COLLECTION",
     )
+    chroma_host: str | None = Field(default=None, validation_alias="MARINE_RAG_CHROMA_HOST")
+    chroma_port: int = Field(default=8000, validation_alias="MARINE_RAG_CHROMA_PORT")
+    chroma_ssl: bool = Field(default=False, validation_alias="MARINE_RAG_CHROMA_SSL")
+
+    redis_url: str | None = Field(default=None, validation_alias="MARINE_RAG_REDIS_URL")
+    cache_ttl_seconds: int = Field(default=900, validation_alias="MARINE_RAG_CACHE_TTL_SECONDS")
 
     chunk_size: int = Field(default=900, validation_alias="MARINE_RAG_CHUNK_SIZE")
     chunk_overlap: int = Field(default=150, validation_alias="MARINE_RAG_CHUNK_OVERLAP")
